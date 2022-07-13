@@ -11,14 +11,14 @@ script:
   - docker run -e CI=true stephengrider/react-test npm test
 
 after_success:
-  - docker build -t stephengrider/multi-client ./client
-  - docker build -t stephengrider/multi-nginx ./nginx
-  - docker build -t stephengrider/multi-server ./server
-  - docker build -t stephengrider/multi-worker ./worker
+  - docker build -t mfloresr12/multi-client ./client
+  - docker build -t mfloresr12/multi-nginx ./nginx
+  - docker build -t mfloresr12/multi-server ./server
+  - docker build -t mfloresr12/multi-worker ./worker
   # Inicie sesión en la CLI de la ventana acoplable
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Tome esas imágenes y llévelas a Docker Hub
-  - docker push stephengrider/multi-client
-  - docker push stephengrider/multi-nginx
-  - docker push stephengrider/multi-server
-  - docker push stephengrider/multi-worker
+  - docker push mfloresr12/multi-client
+  - docker push mfloresr12/multi-nginx
+  - docker push mfloresr12/multi-server
+  - docker push mfloresr12/multi-worker
